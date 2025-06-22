@@ -4,7 +4,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Elite Sports Construction</title>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&family=Poppins:wght@600&display=swap" rel="stylesheet">
     <style>
+        
+        @font-face {
+        font-family: 'Lovecraftimus';
+        src: url('fonts/Lovecraftimus.otf') format('truetype');
+        font-weight: normal;
+        font-style: normal;
+        }
+
+        .lovecraft-text {
+        font-family: 'Lovecraftimus', serif;
+        }
+
         * {
             margin: 0;
             padding: 0;
@@ -49,11 +62,13 @@
         .logo {
             font-size: 1.8rem;
             font-weight: bold;
-            color: #fff;
+            color: #e63946;
             text-decoration: none;
             display: flex;
             align-items: center;
             transition: transform 0.3s ease;
+           font-family: 'Lovecraftimus', serif;
+            
         }
 
         .logo:hover {
@@ -157,57 +172,123 @@
             }
         }
         
-        .hero {
-            height: 80vh;
-            display: flex;
-            align-items: center;
-            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('/api/placeholder/1200/800') no-repeat center center/cover;
-            margin-bottom: 4rem;
-        }
+.hero {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    position: relative;
+    margin-bottom: 4rem;
+    overflow: hidden;  /* Prevent the blurred background from overflowing */
+}
+
+.hero::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('Images/pexels-cottonbro-5739121.jpg') no-repeat center center/cover;
+    filter: blur(10px);  /* Apply blur to the background image */
+    z-index: -1; /* Keep the background behind the content */
+}
+
+.hero-content {
+    position: relative; /* Make sure content stays on top of the blurred background */
+    text-align: left;
+    z-index: 1; /* Content is in front of the blurred background */
+    padding: 2rem;
+}
+
+.hero h1, .hero p {
+    color: rgb(0, 0, 0);  /* Change text color to white */
+    font-weight: 500;
+}
+
+.hero h1 {
+    font-size: 3rem;
+    margin-bottom: 1.5rem;
+    line-height: 1;
+      font-family: 'Poppins', sans-serif;
+  font-size: 2.8em;
+  color: #ffffff;
+  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.7);
+  margin-bottom: 15px;
+}
+
+.hero p {
+    font-size: 1.3rem;
+      line-height: 1.3;
+    margin-bottom: 2rem;
+      font-family: 'Open Sans', sans-serif;
+  font-size: 1.1em;
+  color: #f0f0f0;
+  line-height: 1.7;
+  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.7);
+
+}
+
+.btn {
+    display: inline-block;
+    background-color: #e63946;
+    border-radius: 15rem;
+    color: #fff;
+    padding: 0.8rem 2rem;
+    border: none;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    text-decoration: none;
+}
+
+.btn:hover {
+    background-color: #c1121f;
+}
+/* Mobile responsiveness */
+@media screen and (max-width: 768px) {
+    .hero {
+        height: auto;  /* Reduce height for mobile */
+    }
+
+    .hero-content {
+        padding: 1.5rem;  /* Adjust padding to make space for the content */
+    }
+
+    .hero h1 {
+        font-size: 2rem;  /* Smaller font size for h1 */
+        margin-bottom: 1rem;
+    }
+
+    .hero p {
+        font-size: 1.2rem;  /* Smaller font size for paragraph */
+        margin-bottom: 1.5rem;
+        padding: 0px;
         
-        .hero {
-            background: url('Images/pexels-cottonbro-5739121.jpg') center/cover no-repeat;
-            width: 100%;
-        }
-        
-        .hero-content {
-            text-align: left;
-            max-width: 700px;
-        }
-        
-        .hero h1 {
-            font-size: 3.5rem;
-            color: black;
-            margin-bottom: 1.5rem;
-            line-height: 1.2;
-            background-color:rgba(247, 241, 241,0.7)
-        }
-        
-        .hero p {
-            font-size: 2rem;
-            margin-bottom: 2rem;
-            color: black;
-            background-color:rgba(247, 241, 241,0.7)
-        }
-        
-        .btn {
-            display: inline-block;
-            background-color: #e63946;
-            border-radius: 15rem;
-            color: #fff;
-            padding: 0.8rem 2rem;
-            border: none;
-            border-radius: 5px;
-            font-size: 1rem;
-            font-weight: bold;
-            cursor: pointer;
-            transition: background-color 0.3s;
-            text-decoration: none;
-        }
-        
-        .btn:hover {
-            background-color: #c1121f;
-        }
+    }
+
+    .btn {
+        padding: 0.7rem 1.8rem;  /* Adjust button padding for smaller screens */
+        font-size: 0.9rem;  /* Smaller button text */
+    }
+}
+
+/* Extra small screen (mobile portrait mode) */
+@media screen and (max-width: 480px) {
+    .hero h1 {
+        font-size: 1.8rem;  /* Further reduce font size on very small screens */
+    }
+
+    .hero p {
+        font-size: 1rem;  /* Adjust paragraph font size */
+    }
+
+    .btn {
+        padding: 0.6rem 1.5rem;  /* Smaller button padding */
+        font-size: 0.8rem;  /* Smaller button font */
+    }
+}
+
         
         .section-title {
             text-align: center;
@@ -454,10 +535,12 @@
             
             .hero p {
                 font-size: 1.2rem;
+                width: 110%;
+               
             }
             
             .hero {
-                height: 60vh;
+                padding: 0px;
             }
             
             .section-title h2 {
@@ -470,7 +553,7 @@
 <body>
     <header>
         <div class="container nav-container">
-            <a href="#" class="logo">Newo<span>Sports</span><img style="height: 3rem ; width: 3rem;padding-top: 1rem;" src="Images/logo_high_res-removebg-preview.png"/></a>
+            <a href="#" class="logo" class="lovecraft-text">Newo<span style="margin-left: 5px;" class="lovecraft-text">sports</span><img style="height: 4rem ; width: 8rem;padding-top: 0.3rem; margin-left: 6px;" src="Images/logo_high_res-removebg-preview.png"/></a>
             <div class="menu-toggle" id="mobile-menu">
                 <i class="fas fa-bars"></i>
             </div>
@@ -490,7 +573,16 @@
         <div class="container">
             <div class="hero-content">
                 <h1>Building Excellence in Sports Infrastructure</h1>
-                <p>Specialized construction services for stadiums, arenas, training facilities, and all sports-related infrastructure. Quality, innovation, and expertise since 2018.</p>
+                <p>Sports infrastructure plays a crucial role in achieving excellence in the global arena of sports. It not only helps in producing sports persons of international repute, but also encourages the young population to participate in sporting activities with the objective of creating a culturing of sports.<br><br>
+
+
+                    NEWO Sports has established on 2015 by a group of civil engineers who are specially qualified in sports constructions who embarked on a journey to revolutionize sports infrastructure after understanding the dire need for sports infrastructure in India.<br><br>
+
+                    Understanding the value of infrastructure in Sports, with the proven cutting edge technology to our innovative heritage and our commitment to outstanding technology, we create the best one can enjoy the outdoor and indoor
+
+                    sports facilities.<br><br>
+
+                    NEWO facilitates the best quality products directly imported from different parts of the world and provide the most competitive costing without any intermediate agents.</p>
                 <a href="#contact" class="btn">Get a Free Consultation</a>
             </div>
         </div>
@@ -504,6 +596,70 @@
             </div>
             <div class="services-grid">
                 <div class="service-card">
+                    <div class="service-icon"><img src="Images/fa7bfe958bd8fcc942fe3b827033922b.jpg" alt="..."></div>
+                    <h3>Football Courts </h3>
+                    <p>"Experience top-tier gameplay on our premium football court, perfect for both practice and friendly matches. High-quality turf and professional facilities make every game enjoyable."</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon"><img src="Images/8b386f78-1ca3-4d93-8597-b154d5bbf82b.jpg" alt="..."></div>
+                    <h3>Basketball Courts</h3>
+                    <p>Shoot some hoops on our high-quality basketball courts, featuring smooth surfaces and regulation-size hoops, perfect for both casual play and competitive games.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon"><img src="Images/382bff83-887d-4fa7-98be-90967b6ded46.jpg" alt="..."></div>
+                    <h3>Cricket Fields</h3>
+                    <p>Play your best game on our professionally maintained cricket fields, offering a smooth pitch and spacious boundaries for a top-tier cricket experience.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon"><img src="Images/ce32aa68-efbe-4458-8821-9a4194f65cd2.jpg" alt="..."></div>
+                    <h3>Badminton Court</h3>
+                    <p>Enjoy fast-paced action on our premium badminton court, designed with smooth flooring and regulation-size nets for a perfect game every time.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon"><img src="Images/8b243027-1bee-4c66-aa8d-641eb914dfba.jpg" alt="..."></div>
+                    <h3>Volleyball Courts</h3>
+                    <p>Serve, spike, and dive on our high-quality volleyball courts, built for both casual fun and competitive play with professional-grade nets and sand.</p>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon"><img src="Images/e63b1163-368d-4094-bd7f-589fabc3e111.jpg" alt="..."></div>
+                    <h3>Paddle Ball Courts</h3>
+                    <p>Get in the game on our expertly designed paddle ball courts, offering smooth surfaces and everything you need for an exciting match.</p>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon"><img src="Images/f82bbe60-17dc-4891-a8f6-296d37a1b0f6.jpg" alt="..."></div>
+                    <h3>Pickleball Courts</h3>
+                    <p>Enjoy fast-paced action on our top-quality pickleball courts, with smooth surfaces and regulation nets for a fun and competitive experience.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon"><img src="Images/70a2cf4e-8829-4272-91ac-4a3345caf4f2.jpg" alt="..."></div>
+                    <h3>Squash Courts</h3>
+                    <p>Play your best game on our professionally designed squash courts, featuring smooth surfaces and high-quality walls for an intense, competitive experience.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon"><img src="Images/4ac8ff33-54a6-4b14-9c16-d52575c673b2.jpg" alt="..."></div>
+                    <h3>Tennis Courts</h3>
+                    <p>Perfect your serve and rally on our well-maintained tennis courts, designed with smooth surfaces and professional nets for an exceptional playing experience.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon"><img src="Images/joggen, sport, rennbahn, summer, sunny days,.jpg" alt="..."></div>
+                    <h3>Synthetic Running Track</h3>
+                    <p>Push your limits on our professional-grade synthetic running track, designed for speed, comfort, and durability, perfect for all levels of runners.</p>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon"><img src="Images/b31f64a7-4519-4f27-856b-c2e1e65c791c.jpg" alt="..."></div>
+                    <h3>Skating Track</h3>
+                    <p>Glide smoothly on our top-tier skating track, built for both casual skaters and athletes, offering a safe and durable surface for every session.</p>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon"><img src="Images/4c7ba908-838a-4728-84a9-709394a2273a.jpg" alt="..."></div>
+                    <h3>Swimming Pools</h3>
+                    <p>Dive into our crystal-clear swimming pools, designed for both leisure and training, with lanes for laps and space for relaxation.</p>
+                </div>
+                <div class="service-card">
                     <div class="service-icon"><img src="Images/IMG_0023.PNG" alt="..."></div>
                     <h3>Stadium Construction</h3>
                     <p>State-of-the-art stadium design and construction with focus on spectator experience and player performance.</p>
@@ -514,24 +670,9 @@
                     <p>Providing Landscaping both natural as well as artifical for houses and commerical building.</p>
                 </div>
                 <div class="service-card">
-                    <div class="service-icon"><img src="Images/IMG_0018.PNG" alt="..."></div>
+                    <div class="service-icon"><img src="Images/5fd0dde8-4d53-4371-9706-24921913be13.jpg" alt="..."></div>
                     <h3>Kid Playing Area</h3>
                     <p>We design the best playing area for your kids both indoor and outdoor playing facilities </p>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon"><img src="Images/IMG_0019.PNG" alt="..."></div>
-                    <h3>Court Surfaces</h3>
-                    <p>Specialized court construction for basketball, tennis, volleyball, and multi-purpose indoor arenas.</p>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon"><img src="Images/IMG_0021.PNG" alt="..."></div>
-                    <h3>Facility Renovations</h3>
-                    <p>Modernization and upgrades of existing sports facilities to meet current standards and requirements.</p>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon"><img src="Images/IMG_0016.PNG" alt="..."></div>
-                    <h3>Field Construction</h3>
-                    <p>Natural and artificial turf fields for football, soccer, rugby, and multi-purpose athletic grounds.</p>
                 </div>
             </div>
         </div>
